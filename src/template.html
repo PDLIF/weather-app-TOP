@@ -15,24 +15,24 @@
 </head>
 <body>
     <main>
-        <div class="weather-data">
-            <div class="header">
-                <h1 class="location-name">New-York, US</h1>
-                <div class="">
-                    <p class="degrees">-11°</p>
-                    <div class="time-of-day">
+        <div class="weather-data flex border-radius-20 bg-dark">
+            <div class="weather-data-header flex">
+                <h1 class="location-name fs-700">New-York, US</h1>
+                <div class="big-data flex">
+                    <p class="fs-900">-11°</p>
+                    <div class="time-of-day flex">
                         <img src="./assets/icons/sun-big.svg" alt="sun" class="time-icon">
-                        <p>Day</p>
+                        <p class="fs-600">Day</p>
                     </div>
                 </div>
-                <div class="temperatures-range">
+                <div class="temperatures-range flex fs-500">
                     <p class="highest">Highest: -7°</p>
                     <p class="lowest">Lowest: -17°</p>
                 </div>
             </div>
 
-            <div class="main">
-                <div class="next-hours-forecast bg-light">
+            <div class="main flex">
+                <div class="next-hours-forecast weather-section">
                     <div class="hours-wrapper flex">
                         <div class="hour flex">
                             <p class="value fs-200">Now</p>
@@ -72,134 +72,118 @@
                     </div>
                 </div>
 
-                <div class="10-day-forecast">
-                    <div>
-                        <div class="header">
-                            <img src="./assets/icons/calendar-icon.svg" alt="cal">
-                            <p class="title">7-day-forecast</p>
+                <div class="ten-days-forecast weather-section">
+                    <div class="ten-days-forecast-header flex weather-section-header">
+                        <img class="small-icon" src="./assets/icons/calendar-icon.svg" alt="cal">
+                        <p class="title">7-day-forecast</p>
+                    </div>
+                    <div class="temperatures flex">
+                        <div class="temperature flex">
+                            <p class="day">Today</p>
+                            <p class="day-forecast">Clear</p>
+                            <div class="temp-range flex">
+                                <p class="lowest">-16°</p>
+                                <div class="line"></div>
+                                <p class="highest">-7°</p>
+                            </div>
                         </div>
-                        <div class="temperatures">
-                            <div>
-                                <div>
-                                    <p class="day">Today</p>
-                                    <p class="day-forecast">Clear</p>
-                                </div>
-                                <div class="temp-range">
-                                    <p class="lowest">-16°</p>
-                                    <div class="line"></div>
-                                    <p class="highest">-7°</p>
-                                </div>
+                        <div class="temperature flex">
+                            <p class="day">Monday</p>
+                            <p class="day-forecast">Clear</p>
+                            <div class="temp-range flex">
+                                <p class="lowest">-16°</p>
+                                <div class="line"></div>
+                                <p class="highest">-7°</p>
                             </div>
-                            <div>
-                                <div>
-                                    <p class="day">Today</p>
-                                    <p class="day-forecast">Clear</p>
-                                </div>
-                                <div class="temp-range">
-                                    <p class="lowest">-16°</p>
-                                    <div class="line"></div>
-                                    <p class="highest">-7°</p>
-                                </div>
+                        </div>
+                        <div class="temperature flex">
+                            <p class="day">Tuesday</p>
+                            <p class="day-forecast">Clear</p>
+                            <div class="temp-range flex">
+                                <p class="lowest">-16°</p>
+                                <div class="line"></div>
+                                <p class="highest">-7°</p>
                             </div>
-                            <div>
-                                <div>
-                                    <p class="day">Today</p>
-                                    <p class="day-forecast">Clear</p>
-                                </div>
-                                <div class="temp-range">
-                                    <p class="lowest">-16°</p>
-                                    <div class="line"></div>
-                                    <p class="highest">-7°</p>
-                                </div>
+                        </div>
+                        <div class="temperature flex">
+                            <p class="day">Wednesday</p>
+                            <p class="day-forecast">Clear</p>
+                            <div class="temp-range flex">
+                                <p class="lowest">-16°</p>
+                                <div class="line"></div>
+                                <p class="highest">-7°</p>
                             </div>
-                            <div>
-                                <div>
-                                    <p class="day">Today</p>
-                                    <p class="day-forecast">Clear</p>
-                                </div>
-                                <div class="temp-range">
-                                    <p class="lowest">-16°</p>
-                                    <div class="line"></div>
-                                    <p class="highest">-7°</p>
-                                </div>
+                        </div>
+                        <div class="temperature flex">
+                            <p class="day">Thursday</p>
+                            <p class="day-forecast">Clear</p>
+                            <div class="temp-range flex">
+                                <p class="lowest">-16°</p>
+                                <div class="line"></div>
+                                <p class="highest">-7°</p>
                             </div>
-                            <div>
-                                <div>
-                                    <p class="day">Today</p>
-                                    <p class="day-forecast">Clear</p>
-                                </div>
-                                <div class="temp-range">
-                                    <p class="lowest">-16°</p>
-                                    <div class="line"></div>
-                                    <p class="highest">-7°</p>
-                                </div>
+                        </div>
+                        <div class="temperature flex">
+                            <p class="day">Friday</p>
+                            <p class="day-forecast">Clear</p>
+                            <div class="temp-range flex">
+                                <p class="lowest">-16°</p>
+                                <div class="line"></div>
+                                <p class="highest">-7°</p>
                             </div>
-                            <div>
-                                <div>
-                                    <p class="day">Today</p>
-                                    <p class="day-forecast">Clear</p>
-                                </div>
-                                <div class="temp-range">
-                                    <p class="lowest">-16°</p>
-                                    <div class="line"></div>
-                                    <p class="highest">-7°</p>
-                                </div>
-                            </div>
-                            <div>
-                                <div>
-                                    <p class="day">Today</p>
-                                    <p class="day-forecast">Clear</p>
-                                </div>
-                                <div class="temp-range">
-                                    <p class="lowest">-16°</p>
-                                    <div class="line"></div>
-                                    <p class="highest">-7°</p>
-                                </div>
+                        </div>
+                        <div class="temperature flex">
+                            <p class="day">Saturday</p>
+                            <p class="day-forecast">Clear</p>
+                            <div class="temp-range flex">
+                                <p class="lowest">-16°</p>
+                                <div class="line"></div>
+                                <p class="highest">-7°</p>
                             </div>
                         </div>
                     </div>
                 </div>
+            </div>
 
-                <div class="footer">
-                    <div class="wind-section">
-                        <p class="header">
-                            <img src="./assets/icons/wind-icon.svg" alt="wind">
-                            <p>wind</p>
-                        </p>
-                        <div class="wind-info">
-                            <div class="wind-speed">
-                                <p class="value">5</p>
-                                <p class="measure">m/s</p>
-                            </div>
-                            <p class="direction">Direction: Southwest</p>
-                        </div>
+            <div class="footer flex">
+                <div class="weather-section weather-footer-section flex">
+                    <div class="header weather-section-header flex">
+                        <img class="small-icon" src="./assets/icons/wind-icon.svg" alt="wind">
+                        <p>wind</p>
                     </div>
-
-                    <div class="sunset-section">
-                        <p class="header">
-                            <img src="./assets/icons/sunset.svg" alt="sunset">
-                            <p>sunset</p>
-                        </p>
-                        <div class="sunset-info">
-                            <div class="sunset-time">
-                                <p class="value">18:12</p>
-                                <p class="measure">m/s</p>
-                            </div>
-                            <p class="sunrise-time">Sunrise: 7:56</p>
+                    <div class="wind-info">
+                        <div class="wind-speed flex">
+                            <p class="value fs-700">5</p>
+                            <p class="measure">m/s</p>
                         </div>
+                        <p class="direction fs-200">Direction: Southwest</p>
                     </div>
+                </div>
 
-                    <div class="pressure-section">
-                        <p class="header">
-                            <img src="./assets/icons/pressure-icon.svg" alt="pressure">
-                            <p>pressure</p>
-                        </p>
-                        <div class="pressure-info">
-                            <div class="pressure-value">
-                                <p class="value">1008.5</p>
-                            </div>
-                            <p class="humidity">Humidity: 57.2</p>
+                <div class="weather-section weather-footer-section flex">
+                    <div class="header weather-section-header flex">
+                        <img class="small-icon" src="./assets/icons/sunset.svg" alt="sunset">
+                        <p>sunset</p>
+                    </div>
+                    <div class="sunset-info">
+                        <div class="sunset-time flex">
+                            <p class="value fs-700">18:12</p>
+                            <p class="measure">m/s</p>
                         </div>
+                        <p class="sunrise-time fs-200">Sunrise: 7:56</p>
+                    </div>
+                </div>
+
+                <div class="weather-section weather-footer-section flex">
+                    <div class="header weather-section-header flex">
+                        <img class="small-icon" src="./assets/icons/pressure-icon.svg" alt="pressure">
+                        <p>pressure</p>
+                    </div>
+                    <div class="pressure-info">
+                        <div class="pressure-value">
+                            <p class="value fs-700">1008.5</p>
+                        </div>
+                        <p class="humidity fs-200">Humidity: 57.2</p>
                     </div>
                 </div>
             </div>

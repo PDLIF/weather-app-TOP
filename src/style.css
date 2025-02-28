@@ -69,17 +69,14 @@ body {
     font-family: var(--ff-sans);
     font-size: var(--fs-400);
     color: hsl( var( --clr-white ) );
-    background-color: hsl( var( --clr-dark ) );
+    background-color: hsl( var(--clr-white) );
     background-image: url(./assets/themes/lighthouse-shore.jpg);
-    background-size: contain;
     background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
     line-height: 1.5;
     min-height: 100vh;
-
-    /* display: grid;
-    grid-template-rows: min-content 1fr; */
-
-    overflow: hidden;
+    max-height: fit-content;
 }
 
 /* make images easier to work with */
@@ -122,12 +119,19 @@ select {
 
 /* colors */
 
-.bg-dark { background-color: hsl( var(--clr-dark) ); }
-.bg-light { background-color: hsl( var(--clr-light) ); }
+.bg-dark { background-color: hsl( var(--clr-dark) / .3 ); 
+           backdrop-filter: blur(5px);
+           -webkit-backdrop-filter: blur(5px);
+         }
+.bg-light { background-color: hsl( var(--clr-light) / .4 );
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(15px);
+          }
 .bg-white { background-color: hsl( var(--clr-white) ); }
 
-.text-dark { color: hsl( var(--clr-white)  / 70% ); }
-.text-white { color: hsl( var(--clr-white) ); }
+.text-dark { color: hsl( var(--clr-white)  / 70% )}
+.text-white { color: hsl( var(--clr-white) )}
+.text-green-darker {color: hsl(var(--clr-white) / .7 )}
 
 /* typoghraphy */
 
@@ -162,28 +166,105 @@ p {line-height: 1.8rem;}
 
 
 
-
-
 /* ------------------- */
 /* Components          */
 /* ------------------- */
 
-.weather-data {
-    width: 500px;
-    padding: 20px;
-    background-color: hsl( var(--clr-dark) );
-    border-radius: 20px;
+.small-icon {width: 15px;}
+
+.weather-section-header {
+    color: hsl(var(--clr-white) / .7 );
+    font-size: var(--fs-200);
+    --gap: 7px;
+    align-items: center;
+    text-transform: uppercase;
 }
 
-.weather-data .header {}
-
-.weather-data .main {}
-
-.weather-data .main .next-hours-forecast {
+.weather-section {
     border-radius: 20px;
+    background-color: hsl( var(--clr-light) / .4 ); 
+    backdrop-filter: blur(15px);
+}
+
+@supports not ( backdrop-filter: blur(15px) ) {
+    .weather-section {
+        -webkit-backdrop-filter: blur(15px);
+    }
+}
+
+.weather-footer-section {
+    padding: 8px 11px;
+    flex: 1;
+    justify-content: space-between;
+    flex-direction: column;
+    --gap: .5rem;
+}
+
+
+
+
+
+
+.weather-data {
+    flex-direction: column;
+    --gap: 20px;
+    
+    width: fit-content;
+    padding: 20px;
+    border-radius: 20px;
+    margin: 30px 40px;
+}
+
+@supports not ( backdrop-filter: blur(8rem) ) {
+    .weather-data {
+        -webkit-backdrop-filter: blur(5px);
+    }
+}
+
+.weather-data-header {
+    flex-direction: column;
+    --gap: 1.5rem;
+}
+
+.weather-data-header .location-name {
+    text-align: center;
+}
+
+.weather-data-header .big-data {
+    align-items: center;
+    justify-content: space-around;
+}
+
+
+
+.big-data .time-of-day {
+    align-items: baseline;
+    --gap: 0px;
+}
+
+.weather-data-header .temperatures-range {
+    border-top: 1px solid hsl( var(--clr-white) / .3 );
+    border-bottom: 1px solid hsl( var(--clr-white) / .3 );
+
+    justify-content: center;
+    align-items: center;
+    --gap: 80px;
+
+    height: 2.5rem;
+    
+}
+
+.weather-data-header .temperatures-range p {
+    font-weight: 300;
+}
+
+.weather-data .main {
+    flex-direction: column;
+    --gap: 20px
 }
 
 .hours-wrapper {
+    --gap: 3rem;
     padding: 8px 16px;
     justify-content: space-between;
 }
@@ -195,6 +276,71 @@ p {line-height: 1.8rem;}
 }
 
 .hour img {
-    width: 15px;
+    width: 20px;
 }
 
+.weather-data .main .ten-days-forecast {
+    padding: 4px 11px;
+}
+
+.ten-days-forecast {
+    padding: 8px 12px 4px;
+}
+
+.ten-days-forecast > .temperatures {
+    flex-direction: column;
+    --gap: 0px;
+}
+
+.temperature {
+    border-top: 1px solid hsl(var(--clr-white) / .2);
+    padding: 7px 7px;
+    
+    justify-content: space-between;
+    align-items: center;
+    --gap: 50px;
+}
+
+.temperature .day {
+    font-size: var(--fs-300);
+    width: 91px;
+}
+
+.temperature .day-forecast {
+    font-size: var(--fs-200);
+    font-weight: 300;
+}
+
+.temperature .temp-range {
+    --gap: 20px;
+    align-items: center;
+}
+
+.temperature .temp-range .line {
+    height: 2px;
+    width: 90px;
+    border-radius: 100px;
+    background: linear-gradient(90deg, rgba(153,228,255,1) 0%, rgba(255,180,75,1) 100%);
+}
+
+
+
+
+
+.weather-data .footer {
+    justify-content: space-between;
+}
+
+.wind-info .wind-speed,
+.sunset-info .sunset-time {
+    align-items: baseline;
+    --gap: 5px;
+}
+
+
+
+
+
+/* ------------------- */
+/* Layout              */
+/* ------------------- */
