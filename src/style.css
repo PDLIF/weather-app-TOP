@@ -16,6 +16,7 @@
     --fs-400: 1rem;
     --fs-300: .75rem;
     --fs-200: .625rem;
+    --fs-100: .45rem;
 
     /* time-of-day icon sizes */
     --icon-size-3: 6.5rem;
@@ -89,6 +90,10 @@ body {
     line-height: 1.5;
     min-height: 100vh;
     max-height: fit-content;
+}
+
+main {
+    padding: 7px;
 }
 
 /* make images easier to work with */
@@ -165,6 +170,7 @@ p {line-height: 1.8rem;}
 .fs-400 { font-size: var(--fs-400); }
 .fs-300 { font-size: var(--fs-300); }
 .fs-200 { font-size: var(--fs-200); }
+.fs-100 { font-size: var(--fs-100); }
 
 .fs-900,
 .fs-800,
@@ -200,6 +206,7 @@ p {line-height: 1.8rem;}
     border-radius: 20px;
     background-color: hsl( var(--clr-light) / .4 ); 
     backdrop-filter: blur(15px);
+    padding: 6px 12px;
 }
 
 @supports not ( backdrop-filter: blur(15px) ) {
@@ -209,7 +216,7 @@ p {line-height: 1.8rem;}
 }
 
 .weather-footer-section {
-    padding: 8px 11px;
+    padding: 0px 12px;
     flex: 1;
     justify-content: space-between;
     flex-direction: column;
@@ -229,7 +236,6 @@ p {line-height: 1.8rem;}
     max-width: fit-content;
     padding: 20px;
     border-radius: 20px;
-    margin: 30px 40px;
 }
 
 @supports not ( backdrop-filter: blur(8rem) ) {
@@ -265,7 +271,7 @@ p {line-height: 1.8rem;}
 
     justify-content: center;
     align-items: center;
-    --gap: 80px;
+    --gap: clamp(20px, 10vw, 80px);
 
     height: 2.5rem;
     
@@ -273,6 +279,7 @@ p {line-height: 1.8rem;}
 
 .weather-data-header .temperatures-range p {
     font-weight: 300;
+    white-space: nowrap;
 }
 
 .weather-data .main {
@@ -282,7 +289,6 @@ p {line-height: 1.8rem;}
 
 .hours-wrapper {
     --gap: 3rem;
-    padding: 8px 16px;
     justify-content: space-between;
     overflow: hidden;
     white-space: nowrap;
@@ -299,12 +305,8 @@ p {line-height: 1.8rem;}
     width: 20px;
 }
 
-.weather-data .main .ten-days-forecast {
-    padding: 4px 11px;
-}
-
 .ten-days-forecast {
-    padding: 8px 12px 4px;
+    padding: 0px 12px;
 }
 
 .ten-days-forecast > .temperatures {
@@ -348,7 +350,7 @@ p {line-height: 1.8rem;}
 }
 
 .temperature .temp-range {
-    --gap: 20px;
+    --gap: 10px;
     align-items: center;
     justify-content: end;
     width: 100%;
@@ -378,6 +380,11 @@ p {line-height: 1.8rem;}
 .sunset-info .sunset-time {
     align-items: baseline;
     --gap: 5px;
+}
+
+.footer .additional-info {
+    white-space: nowrap;
+    color: hsl( var(--clr-white) / .6 );
 }
 
 
