@@ -179,6 +179,17 @@ p {line-height: 1.8rem;}
     line-height: 1.1;
 }
 
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap; /* added line */
+    border: 0;
+}
 
 
 
@@ -223,10 +234,110 @@ p {line-height: 1.8rem;}
     --gap: .5rem;
 }
 
+.input-field {
+    padding-right: 50px;
+    max-width: 552px;
+}
+
+.search-input {
+    width: 100%;
+    height: 35px;
+
+    padding: 0 20px;
+    color: hsl( var(--clr-white) / 1 );
+
+    font-size: var(--fs-400);
+
+    border-radius: 100px;
+    border: none;
+
+    position: relative;
+}
+
+.search-input::after {
+    content: '';
+    display:inline-block;
+    position: absolute;
+    background-image: url(./assets/icons/lense.svg);
+    width: 100%;
+    height: 100%;
+}
+
+input::-webkit-input-placeholder { /* Chrome, Safari, Edge */
+    color: hsl( var(--clr-white) / .3 );
+  }
+
+.mobile-nav-toggle {
+    display: none;
+    position: absolute;
+    z-index: 20000;
+    right: 20px;
+    top: 1.1rem;
+
+    background: transparent;
+    background-image: url(./assets/icons/menu-toggle.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+
+    border: none;
+    aspect-ratio: 1;
+    width: 1.5rem;
+
+    cursor: pointer;
+}
+
+@media (max-width: 50rem) {
+    .primary-navigation {
+        --underline-gap: .5rem;
+        position: fixed;
+        z-index: 9999;
+        inset: 0 0 0 30%;
+        list-style: none;
+        padding: 3rem 2rem;
+        flex-direction: column;
+
+        transform: translateX(100%);
+        transition: transform 250ms ease-in;
+    }
+
+    .primary-navigation.underline-indicators > .active,
+    .primary-navigation.underline-indicators > * {
+        border: 0;
+    }
+
+    .mobile-nav-toggle {
+        display: block;
+    }
+
+    .primary-navigation[data-visible='true'] {
+        transform: translateX(0%);
+    }
+
+    .mobile-nav-toggle[aria-expanded='true'] {
+        background-image: url(./assets/icons/menu-toggle.svg);
+    }
+
+    .mobile-nav-toggle:focus {
+        outline: 5px solid red;
+        outline-offset: 5px;
+    }
+}
 
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+/* weather data */
 
 .weather-data {
     flex-direction: column;
