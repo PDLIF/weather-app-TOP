@@ -9,20 +9,32 @@
     --clr-white: 0 0% 92.5%;
 
     /* fonts-sizes */
-    --fs-900: 6.5rem;
-    --fs-800: 2.5rem;
-    --fs-700: 2rem;
-    --fs-600: 1.5rem;
-    --fs-500: 1.25rem;
+    --fs-900: 3.25rem;
+    --fs-800: 1.9rem;
+    --fs-700: 1.5rem; 
+    --fs-500: 1.25rem; 
     --fs-400: 1rem;
-    --fs-300: 0.875rem;
-    --fs-200: 0.75rem;
+    --fs-300: .75rem;
+    --fs-200: .625rem;
+
+    /* time-of-day icon sizes */
+    --icon-size-3: 6.5rem;
+    --icon-size-2: 5rem;
+    --icon-size-3: 15px;
+
 
     /* font-families */
     --ff-sans: "Inter", sans-serif;
 }
 
-
+@media (min-width: 50rem) {
+    :root {
+        --fs-900: 6.5rem;
+        --fs-600: 1.5rem;
+        --fs-400: .75rem;
+        --fs-300: .625rem;
+    }
+}
 
 
 
@@ -67,7 +79,7 @@ p {
 
 body {
     font-family: var(--ff-sans);
-    font-size: var(--fs-400);
+    font-size: var(--fs-700);
     color: hsl( var( --clr-white ) );
     background-color: hsl( var(--clr-white) );
     background-image: url(./assets/themes/lighthouse-shore.jpg);
@@ -172,8 +184,12 @@ p {line-height: 1.8rem;}
 
 .small-icon {width: 15px;}
 
+.time-of-day-icon {
+    width: 5rem;
+}
+
 .weather-section-header {
-    color: hsl(var(--clr-white) / .7 );
+    color: hsl(var(--clr-white) / .6 );
     font-size: var(--fs-200);
     --gap: 7px;
     align-items: center;
@@ -209,7 +225,8 @@ p {line-height: 1.8rem;}
     flex-direction: column;
     --gap: 20px;
     
-    width: fit-content;
+    /* width: fit-content; */
+    max-width: fit-content;
     padding: 20px;
     border-radius: 20px;
     margin: 30px 40px;
@@ -267,6 +284,9 @@ p {line-height: 1.8rem;}
     --gap: 3rem;
     padding: 8px 16px;
     justify-content: space-between;
+    overflow: hidden;
+    white-space: nowrap;
+
 }
 
 .hour {
@@ -298,31 +318,54 @@ p {line-height: 1.8rem;}
     
     justify-content: space-between;
     align-items: center;
-    --gap: 50px;
+}
+
+.temperature > .header {
+    --gap: 20px;
+}
+
+@media (max-width: 35rem) {
+    .temperature > .header {
+        flex-direction: column;
+        --gap: 0px;
+    }
+
+    .temperature .header .day {
+        height: 1rem;
+    }
+
+    .temperature {
+        padding: 0px 7px;
+    }
 }
 
 .temperature .day {
-    font-size: var(--fs-300);
     width: 91px;
 }
 
 .temperature .day-forecast {
-    font-size: var(--fs-200);
     font-weight: 300;
 }
 
 .temperature .temp-range {
     --gap: 20px;
     align-items: center;
+    justify-content: end;
+    width: 100%;
 }
 
 .temperature .temp-range .line {
     height: 2px;
-    width: 90px;
+    flex-grow: .5;
     border-radius: 100px;
     background: linear-gradient(90deg, rgba(153,228,255,1) 0%, rgba(255,180,75,1) 100%);
 }
 
+/* @media (max-width: 35rem) {
+    .temp-range .line {
+        width: 20px;
+    }
+} */
 
 
 
