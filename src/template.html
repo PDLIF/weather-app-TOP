@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="style.css">
 
     <script src="navigation.js" defer></script>
+    <script src="index.js" defer></script>
 </head>
 <body>
     <main class="flex" style="flex-direction: column;">
@@ -23,9 +24,16 @@
             </div>
             <button class="mobile-nav-toggle" aria-controls="primary-navigation" aria-expanded="false"><span class="sr-only">Menu</span></button>
             <nav>
-                <ul id="primary-navigation" data-visible="false" class="primary-navigation underline-indicators flex">
-                    <div class="player"></div>
-                    <div class="theme-chooser"></div>
+                <ul id="primary-navigation" data-visible="false" class="primary-navigation flex">
+                    <div class="player flex bg-lighter">
+                        <img src="./assets/pictures/aphex 1.png" alt="">
+                        <button class="play-btn"></button>
+                        <div class="volume"></div>
+                    </div>
+                    <div class="theme-chooser flex bg-lighter">
+                        <img src="./assets/icons/landscape-icon.svg" alt="" srcset="">
+                        <p class="fs-300">Choose a theme</p>
+                    </div>
                 </ul>
             </nav>
         </div>
@@ -33,15 +41,15 @@
             <div class="weather-data-header flex">
                 <h1 class="location-name fs-700">New-York, US</h1>
                 <div class="big-data flex">
-                    <p class="fs-900">-11°</p>
+                    <p id="temperature" class="fs-900">-11°</p>
                     <div class="time-of-day flex">
-                        <img src="./assets/icons/sun-big.svg" alt="sun" class="time-of-day-icon">
-                        <p class="fs-500">Day</p>
+                        <img id="time-of-day-icon" src="./assets/icons/sun-big.svg" alt="sun" class="time-of-day-icon">
+                        <p id="time-of-day" class="fs-500">Day</p>
                     </div>
                 </div>
                 <div class="temperatures-range flex fs-400">
-                    <p class="highest">Highest: -7°</p>
-                    <p class="lowest">Lowest: -17°</p>
+                    <p class="highest">Highest: <span class="value">-7</span>°</p>
+                    <p class="lowest">Lowest: <span class="value">-17</span>°</p>
                 </div>
             </div>
 
