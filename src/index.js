@@ -105,6 +105,24 @@ const getWeather = (location) => {
                 days[index].querySelector('.lowest').textContent = `${Math.round(lowestTemp)}°`;
                 days[index].querySelector('.highest').textContent = `${Math.round(highestTemp)}°`;
             });
+
+            return data;
+        })
+        .then((data) => {
+            const windspeedHtml = document.querySelector('.wind-info .wind-speed .value');
+            const winddirHrml = document.querySelector('.wind-info .additional-info .value');
+            
+            const windspeed = data.currentConditions.windspeed;
+            const winddir = data.currentConditions.winddir;
+
+            windspeedHtml.textContent = windspeed;
+            winddirHrml.textContent = getWindDirection(winddir);
+
+            function getWindDirection(degrees) {
+                const directions = ["North", "Northeast", "Eeast", "Southeast", "South", "Southwest", "West", "Northwest"];
+                const index = Math.round(degrees / 45) % 8; // 360° / 8 = 45° per direction
+                return directions[index];
+            }
         })
         .catch((error) => {
             console.log('Failed to fetch weather data: ', error);
