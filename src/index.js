@@ -88,7 +88,7 @@ const getWeather = (location) => {
 
             return data;
         })
-        .then((data) => {
+        .then((data) => {   // Get 7-days forecast
             const days = document.querySelectorAll('.temperature');
 
             const sevenDays = data.days.slice(0, 7);
@@ -108,7 +108,7 @@ const getWeather = (location) => {
 
             return data;
         })
-        .then((data) => {
+        .then((data) => {   // Get wind info
             const windspeedHtml = document.querySelector('.wind-info .wind-speed .value');
             const winddirHrml = document.querySelector('.wind-info .additional-info .value');
             
@@ -123,6 +123,23 @@ const getWeather = (location) => {
                 const index = Math.round(degrees / 45) % 8; // 360° / 8 = 45° per direction
                 return directions[index];
             }
+
+            return data;
+        })
+        .then((data) => {
+            const sunsetTime = data.currentConditions.sunset;
+            const sunriseTime = data.currentConditions.sunrise;
+
+            const [sunsetHours, sunsetMinutes, sunsetSeconds] = sunsetTime.split(':');
+            const [sunriseHours, sunriseMinutes, sunriseSeconds] = sunriseTime.split(':');
+
+            const sunsetTimeHtml = document.querySelector('.sunset-info .sunset-value');
+            const sunriseTimeHtml = document.querySelector('.sunset-info .sunrise-value');
+
+            sunsetTimeHtml.textContent = `${sunsetHours}:${sunsetMinutes}`;
+            sunriseTimeHtml.textContent = `${sunriseHours}:${sunriseMinutes}`;
+
+            return data;
         })
         .catch((error) => {
             console.log('Failed to fetch weather data: ', error);

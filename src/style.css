@@ -551,7 +551,7 @@ p {line-height: 1.8rem;}
 }
 
 .wind-info .wind-speed,
-.sunset-info .sunset-time {
+.sunset-info .sunset-value {
     align-items: baseline;
     --gap: 5px;
 }
