@@ -50,8 +50,8 @@ const getWeather = (location) => {
                 timeOfDayIcon.src = './assets/icons/moon-big.svg'
             }
 
-            highestTempHeader.textContent = today.tempmin;
-            lowestTempHeader.textContent = today.tempmax;
+            highestTempHeader.textContent = today.tempmax;
+            lowestTempHeader.textContent = today.tempmin;
 
             return data;
         })
@@ -155,11 +155,6 @@ const getWeather = (location) => {
             console.log('Failed to fetch weather data: ', error);
         });
 };
-
-
-
-
-
 
 searchField.addEventListener('keypress', (e) => {
     if (e.key === 'Enter') {
