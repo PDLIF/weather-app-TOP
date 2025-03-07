@@ -141,6 +141,16 @@ const getWeather = (location) => {
 
             return data;
         })
+        .then((data) => {
+            const pressure = data.currentConditions.pressure.toString();
+            const humidity = data.currentConditions.humidity.toString();
+
+            const pressureHtml = document.querySelector('.pressure-value .value');
+            const humidityHtml = document.querySelector('.pressure-info .additional-info .value');
+
+            pressureHtml.textContent = pressure;
+            humidityHtml.textContent = humidity;
+        })
         .catch((error) => {
             console.log('Failed to fetch weather data: ', error);
         });
