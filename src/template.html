@@ -8,11 +8,14 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <title>Weather App</title>
 
     <link rel="stylesheet" href="style.css">
 
+    <script src="mp3.js" defer></script>
+    <script src="theme-chooser.js" defer></script>
     <script src="navigation.js" defer></script>
     <script src="index.js" defer></script>
 </head>
@@ -22,18 +25,47 @@
             <div class="input-field">
                 <input type="text" placeholder="Search for a city" class="search-input bg-dark">
             </div>
-            <button class="mobile-nav-toggle" aria-controls="primary-navigation" aria-expanded="false"><span class="sr-only">Menu</span></button>
+            <button class="mobile-nav-toggle" aria-controls="side-menu" aria-expanded="false"><span class="sr-only">Menu</span></button>
             <nav>
-                <ul id="primary-navigation" data-visible="false" class="primary-navigation flex">
-                    <div class="player flex bg-lighter">
-                        <img src="./assets/pictures/aphex 1.png" alt="">
-                        <button class="play-btn"></button>
-                        <div class="volume"></div>
+                <ul id="side-menu" data-visible="false" class="side-menu flex bg-black-lighter">
+                    <div class="mp3-player flex bg-lighter">
+                        <img src="./assets/mp3/aphex 1.png" alt="">
+
+                        <audio id="audio" src="./assets/mp3/Aphex Twin - 3.mp3"></audio>
+                        
+                        <div class="controls flex">
+                            <button id="play" class="play-btn">
+                                <i class="fas fa-play"></i>
+                            </button>
+                            <div class="volume-container">
+                                <div id="volume" class="volume"></div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="theme-chooser flex bg-lighter">
-                        <img src="./assets/icons/landscape-icon.svg" alt="" srcset="">
-                        <p class="fs-300">Choose a theme</p>
-                    </div>
+                    <div id="themeChooser-container" class="theme-chooser-container">
+                        <div id="themeBtn" class="theme-btn flex bg-lighter">
+                            <img src="./assets/icons/landscape-icon.svg" alt="" srcset="">
+                            <p class="fs-300">Choose a theme</p>
+                        </div>
+                        <div id="themeMenu" class="theme-menu flex bg-lighter" aria-expanded="false">
+                            <button class="theme-option chosen">
+                                <img src="./assets/themes/lighthouse-shore.jpg" alt="" srcset="">
+                            </button>
+                            <button class="theme-option">
+                                <img src="./assets/themes/lighthouse-twilight.jpg" alt="" srcset="">
+                            </button>
+                            <button class="theme-option">
+                                <img src="./assets/themes/clouds.jpg" alt="" srcset="">
+                            </button>
+                            <button class="theme-option">
+                                <img src="./assets/themes/grass.jpg" alt="" srcset="">
+                            </button>
+                            <button class="theme-option">
+                                <img src="./assets/themes/forest.jpg" alt="" srcset="">
+                            </button>
+                        </div>
+                        <button class="theme-menu-close"></button>
+                    </div>  
                 </ul>
             </nav>
         </div>
@@ -54,7 +86,7 @@
             </div>
 
             <div class="main flex">
-                <div class="next-hours-forecast weather-section">
+                <div class="next-hours-forecast weather-section bg-light">
                     <div class="hours-wrapper flex">
                         <div class="hour flex fs-300">
                             <p class="value">Now</p>
@@ -94,7 +126,7 @@
                     </div>
                 </div>
 
-                <div class="ten-days-forecast weather-section">
+                <div class="ten-days-forecast weather-section bg-light">
                     <div class="ten-days-forecast-header flex weather-section-header">
                         <img class="small-icon" src="./assets/icons/calendar-icon.svg" alt="cal">
                         <p class="title">7-day-forecast</p>
@@ -182,7 +214,7 @@
             </div>
 
             <div class="footer flex">
-                <div class="weather-section weather-footer-section flex">
+                <div class="weather-section weather-footer-section flex bg-light">
                     <div class="header weather-section-header flex">
                         <img class="small-icon" src="./assets/icons/wind-icon.svg" alt="wind">
                         <p>wind</p>
@@ -196,7 +228,7 @@
                     </div>
                 </div>
 
-                <div class="weather-section weather-footer-section flex">
+                <div class="weather-section weather-footer-section flex bg-light">
                     <div class="header weather-section-header flex">
                         <img class="small-icon" src="./assets/icons/sunset.svg" alt="sunset">
                         <p>sunset</p>
@@ -207,7 +239,7 @@
                     </div>
                 </div>
 
-                <div class="weather-section weather-footer-section flex">
+                <div class="weather-section weather-footer-section flex bg-light">
                     <div class="header weather-section-header flex">
                         <img class="small-icon" src="./assets/icons/pressure-icon.svg" alt="pressure">
                         <p>pressure</p>
