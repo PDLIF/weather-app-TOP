@@ -35,7 +35,7 @@ const updateHeaderWeather = (data) => {
     const locationName = document.querySelector('.location-name');
     const temperatureValue = document.querySelector('#temperature');
     const timeOfDayIcon = document.querySelector('#time-of-day-icon');
-    const timeOfDay = document.querySelector('#time-of-day');
+    const timeOfDay = document.querySelector('#time-of-day-value');
     
     const highestTempHeader = document.querySelector('.temperatures-range > .highest > .value');
     const lowestTempHeader = document.querySelector('.temperatures-range > .lowest > .value');
@@ -117,7 +117,7 @@ const updateDailyForecast = (data) => {
 
 const updateWindInfo = (data) => {
     const windspeedHtml = document.querySelector('.wind-info .wind-speed .value');
-    const winddirHrml = document.querySelector('.wind-info .additional-info .value');
+    const winddirHrml = document.querySelector('.wind-info .additional-info .dir-value');
     
     const windspeed = data.currentConditions.windspeed;
     const winddir = data.currentConditions.winddir;
@@ -151,7 +151,7 @@ const updatePressureInfo = (data) => {
     const humidity = data.currentConditions.humidity.toString();
 
     const pressureHtml = document.querySelector('.pressure-value .value');
-    const humidityHtml = document.querySelector('.pressure-info .additional-info .value');
+    const humidityHtml = document.querySelector('.pressure-info .additional-info .hum-value');
 
     pressureHtml.textContent = pressure;
     humidityHtml.textContent = humidity;
