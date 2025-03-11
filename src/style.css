@@ -483,6 +483,8 @@ p {line-height: 1.8rem;}
     height: fit-content;
 
     cursor: pointer;
+
+    position: relative;
 }
 
 .theme-btn:hover {
@@ -493,10 +495,17 @@ p {line-height: 1.8rem;}
     filter: brightness(80%);
 }
 
-.theme-btn > img {
+.theme-btn > .landscape-icon {
     aspect-ratio: 1;
     width: 16px;
     color: white;
+}
+
+.theme-btn > .menu-down-icon {
+    position: absolute;
+    top: 14px;
+    right: 8%;
+    width: 20px;
 }
 
 .theme-menu {
