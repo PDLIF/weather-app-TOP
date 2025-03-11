@@ -12,6 +12,7 @@
     --clr-white: 0 0% 92.5%;
     --clr-white-lighter: 0 0% 92.5% / .3;
     /* --clr-lightblue: 201 46% 48.6%; */
+    --clr-pending: 167 8.2% 43.1%;
 
     /* fonts-sizes */
     --fs-900: 4rem;
@@ -706,6 +707,13 @@ p {line-height: 1.8rem;}
 
 /* Weater panel */
 
+.weather-panel {
+    flex-direction: column;
+    --gap: 1rem;
+
+    cursor: default;
+}
+
 .input-field {
     padding-right: 50px;
     max-width: 552px;
@@ -764,11 +772,11 @@ p {line-height: 1.8rem;}
 }
 
 .search-btn:hover {
-    background-color: hsl( 167 8.2% 30% );
+    background-color: hsl( 167 8.2% 33% );
 }
 
 .search-btn:active {
-    background-color: hsl( 167 8.2% 27% );
+    background-color: hsl( 167 8.2% 30% );
 }
 
 .search-btn .icon {
@@ -784,12 +792,7 @@ p {line-height: 1.8rem;}
 
 
 
-.weather-panel {
-    flex-direction: column;
-    --gap: 1rem;
 
-    cursor: default;
-}
 
 .weather-data {
     flex-direction: column;
@@ -875,19 +878,26 @@ p {line-height: 1.8rem;}
 
 
 
-
 .hours-wrapper {
-    --gap: 3rem;
+    --gap: 3.6rem;
     justify-content: space-between;
-    overflow: hidden;
+    overflow: scroll;
     white-space: nowrap;
+    padding-inline: 5px;
 
+    scrollbar-width: none;
+}
+
+.hours-wrapper::-webkit-scrollbar {
+    display: none;
 }
 
 .hour {
     flex-direction: column;
     align-items: center;
     --gap: 10px;
+
+    width: 25px;
 }
 
 .hour > img {
@@ -917,6 +927,7 @@ p {line-height: 1.8rem;}
 } */
 
 .temperature > .header {
+    align-items: center;
     --gap: 10px;
 
     width: fit-content;
@@ -950,8 +961,8 @@ p {line-height: 1.8rem;}
     white-space: nowrap;
     overflow: hidden;
     width: 150px;
-    mask-image: linear-gradient(to right, black 70%, transparent 100%);
-    -webkit-mask-image: linear-gradient(to right, black 70%, transparent 100%);
+    mask-image: linear-gradient(to right, black 85%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to right, black 85%, transparent 100%);
 }
 
 @media (min-width: 35rem) {
@@ -1017,6 +1028,97 @@ p {line-height: 1.8rem;}
 }
 
 
-/* ------------------- */
-/* Layout              */
-/* ------------------- */
+
+
+
+
+
+/* ----------------------- */
+/* Pending download state  */
+/* ----------------------- */
+
+.weather-data.pending .weather-data-header .location-name,
+.weather-data.pending .big-data > #temperature,
+.weather-data.pending .temperatures-range p,
+.weather-data.pending .hour {
+    background-color: hsl( var(--clr-pending) );
+    border-radius: 15px;
+    color: transparent;
+}
+
+.weather-data.pending .big-data .img-wrapper {
+    background-color: hsl( var(--clr-pending) );
+    border-radius: 50%;
+    aspect-ratio: 1;
+    width: 106px;
+}
+
+.weather-data.pending .big-data #time-of-day-icon,
+.weather-data.pending .hour img,
+.weather-data.pending .temperature .temp-range .line {
+    visibility: hidden;
+}
+
+.weather-data.pending .big-data #time-of-day-value {
+    background-color: hsl( var(--clr-pending) );
+    border-radius: 15%;
+    color: transparent;
+}
+
+.weather-data.pending .temperature .day,
+.weather-data.pending .temperature .day-forecast,
+.weather-data.pending .temperature .temp-range {
+    background-color: hsl( var(--clr-pending) );
+    border-radius: 15px;
+    height: 1rem;
+    color: transparent;
+}
+
+.weather-data.pending .temperature .day-forecast {
+    margin-right: 10px;
+    mask-image: linear-gradient(to right, black 100%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to right, black 100%, transparent 100%);
+}
+
+.weather-data.pending .wind-speed,
+.weather-data.pending .sunset-value,
+.weather-data.pending .pressure-value {
+    background-color: hsl( var(--clr-pending) );
+    border-radius: 15px;
+    color: transparent;
+    max-width: 70%;
+    height: 30px;
+}
+
+.weather-data.pending .additional-info {
+    background-color: hsl( var(--clr-pending) );
+    border-radius: 15px;
+    color: transparent;
+    height: .7rem;
+    margin-block: 10px 10px;
+}
+
+.weather-data.pending .weather-data-header .location-name,
+.weather-data.pending .big-data > #temperature,
+.weather-data.pending .temperatures-range p,
+.weather-data.pending .hour,
+.weather-data.pending .big-data .img-wrapper,
+.weather-data.pending .temperature .day,
+.weather-data.pending .temperature .day-forecast,
+.weather-data.pending .temperature .temp-range,
+.weather-data.pending .wind-speed,
+.weather-data.pending .sunset-value,
+.weather-data.pending .pressure-value,
+.weather-data.pending .additional-info {
+    animation: skeleton-loading .7s linear infinite alternate;
+}
+
+@keyframes skeleton-loading {
+    0% {
+        background-color: hsl( var(--clr-pending) );
+    }
+
+    100% {
+        background-color: hsl( var(--clr-pending) / .5 );
+    }
+}

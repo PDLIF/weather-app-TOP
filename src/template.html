@@ -10,8 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=arrow_forward" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/> -->
 
     <title>Weather App</title>
 
@@ -21,11 +20,14 @@
     <script src="theme-chooser.js" defer></script>
     <script src="navigation.js" defer></script>
     <script src="index.js" defer></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer></script> -->
+    <!-- <script src="swiper.js" defer></script> -->
 </head>
 <body>
     <main>
         <div class="nav-wrapper">
             <button class="mobile-nav-toggle" aria-controls="side-menu" aria-expanded="false"><span class="sr-only">Menu</span></button>
+
             <nav>
                 <ul id="side-menu" data-visible="false" class="side-menu flex bg-black-lighter">
                     <div class="mp3-player flex bg-lighter">
@@ -48,6 +50,7 @@
                             </div>
                         </div>
                     </div>
+
                     <div id="themeChooserContainer" class="theme-chooser-container">
                         <div id="themeBtn" class="theme-btn flex bg-lighter">
                             <img class="landscape-icon" src="./assets/icons/landscape-icon.svg" alt="" srcset="">
@@ -73,6 +76,7 @@
                 </ul>
             </nav>
         </div>
+
         <div class="weather-panel flex">
             <div class="input-field">
                 <input type="text" placeholder="Search for a city" class="search-input bg-dark fs-400">
@@ -87,7 +91,9 @@
                     <div class="big-data flex">
                         <p id="temperature" class="fs-900">-11°</p>
                         <div class="time-of-day flex">
-                            <img id="time-of-day-icon" src="./assets/icons/sun-big.svg" alt="sun" class="time-of-day-icon icon-size">
+                            <div class="img-wrapper">
+                                <img id="time-of-day-icon" src="./assets/icons/sun-big.svg" alt="sun" class="time-of-day-icon icon-size">
+                            </div>
                             <p id="time-of-day-value" class="fs-500 bg-lighter">Day</p>
                         </div>
                     </div>
@@ -98,39 +104,39 @@
                 </div>
 
                 <div class="main flex">
-                    <div class="next-hours-forecast weather-section bg-light">
-                        <div class="hours-wrapper flex">
-                            <div class="hour flex fs-300">
+                    <div class="next-hours-forecast weather-section swiper bg-light">
+                        <div class="hours-wrapper swiper-wrapper flex">
+                            <div class="hour swiper-slide flex fs-300">
                                 <p class="value">Now</p>
                                 <img src="./assets/icons/sun-small.svg" alt="">
                                 <p class="hour-temperature">-11°</p>
                             </div>
-                            <div class="hour flex fs-300">
+                            <div class="hour swiper-slide flex fs-300">
                                 <p class="value">13</p>
                                 <img src="./assets/icons/sun-small.svg" alt="">
                                 <p class="hour-temperature">-11°</p>
                             </div>
-                            <div class="hour flex fs-300">
+                            <div class="hour swiper-slide flex fs-300">
                                 <p class="value">14</p>
                                 <img src="./assets/icons/sun-small.svg" alt="">
                                 <p class="hour-temperature">-11°</p>
                             </div>
-                            <div class="hour flex fs-300">
+                            <div class="hour swiper-slide flex fs-300">
                                 <p class="value">15</p>
                                 <img src="./assets/icons/sun-small.svg" alt="">
                                 <p class="hour-temperature">-11°</p>
                             </div>
-                            <div class="hour flex fs-300">
+                            <div class="hour swiper-slide flex fs-300">
                                 <p class="value">16</p>
                                 <img src="./assets/icons/sun-small.svg" alt="">
                                 <p class="hour-temperature">-11°</p>
                             </div>
-                            <div class="hour flex fs-300">
+                            <div class="hour swiper-slide flex fs-300">
                                 <p class="value">17</p>
                                 <img src="./assets/icons/sun-small.svg" alt="">
                                 <p class="hour-temperature">-11°</p>
                             </div>
-                            <div class="hour flex fs-300">
+                            <div class="hour swiper-slide flex fs-300">
                                 <p class="value">18</p>
                                 <img src="./assets/icons/sun-small.svg" alt="">
                                 <p class="hour-temperature">-11°</p>

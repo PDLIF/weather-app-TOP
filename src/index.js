@@ -2,6 +2,7 @@
 
 const searchField = document.querySelector('.search-input');
 const searchBtn = document.querySelector('.search-btn');
+const weatherDataPanel = document.querySelector('.weather-data');
 
 
 // Fetching weather data function
@@ -10,6 +11,9 @@ const getWeather = async (location) => {
     try {
         const apiKey = 'APXATEEFMHYTLYK9HZNAQ6XM9';
         const url = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${location}?unitGroup=metric&key=${apiKey}&include=hours,current&contentType=json`;
+
+        weatherDataPanel.classList.add('pending');
+        
         const response = await fetch(url);
 
         if (!response.ok) {
@@ -18,6 +22,7 @@ const getWeather = async (location) => {
 
         const data = await response.json();
         console.log('Weather Data', data);
+        weatherDataPanel.classList.remove('pending');
 
         updateHeaderWeather(data);
         updateHourlyForecast(data);
