@@ -3,6 +3,7 @@
 const searchField = document.querySelector('.search-input');
 const searchBtn = document.querySelector('.search-btn');
 const weatherDataPanel = document.querySelector('.weather-data');
+const errorMessage = document.querySelector('.error-message');
 
 
 // Fetching weather data function
@@ -21,7 +22,9 @@ const getWeather = async (location) => {
         }
 
         const data = await response.json();
+
         console.log('Weather Data', data);
+
         weatherDataPanel.classList.remove('pending');
 
         updateHeaderWeather(data);
@@ -32,6 +35,8 @@ const getWeather = async (location) => {
         updatePressureInfo(data);
     } catch (error) {
         console.log('Failed to fetch weather data: ', error);
+        weatherDataPanel.classList.remove('pending');
+        showError();
     }
 };
 
@@ -169,6 +174,20 @@ const searchWeather = () => {
     const location = searchField.value.trim();
     if (location) { getWeather(location) }
 }
+
+const showError = () => {
+    errorMessage.classList.add('show');
+
+    // Remove the message after 3 seconds
+    setTimeout(() => {
+        errorMessage.classList.remove('show');
+    }, 3000);
+}
+
+
+
+
+
 
 
 // Event listeners

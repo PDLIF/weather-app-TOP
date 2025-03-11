@@ -939,6 +939,7 @@ p {line-height: 1.8rem;}
 @media (max-width: 35rem) {
     .temperature > .header {
         flex-direction: column;
+        align-items: flex-start;
         --gap: 0px;
     }
 
@@ -1120,5 +1121,63 @@ p {line-height: 1.8rem;}
 
     100% {
         background-color: hsl( var(--clr-pending) / .5 );
+    }
+}
+
+
+
+
+
+
+/* Error message */
+
+.error-message {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    --gap: 1rem;
+
+    background-color: hsl( var(--clr-green-lighter) / .7 );
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+
+    padding: 1.5rem;
+    border-radius: 20px ;
+
+    z-index: 99999999999;
+
+    position: absolute;
+    top: 11.5%;
+    left: 1.7rem;
+
+    /* width: clamp(10rem, 20rem, 30rem); */
+    width: 87%;
+    height: 145px;
+
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: opacity 0.5s ease, transform 0.5s ease, visibility 0.5s;
+}
+
+.error-message.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.error-message .title {
+    font-weight: 600;
+}
+
+.error-message .text {
+    font-weight: 200;
+}
+
+@media (min-width: 32.6rem) {
+    .error-message {
+        left: 2.2rem;
+        width: 463px;
+        height: 165px;
     }
 }
