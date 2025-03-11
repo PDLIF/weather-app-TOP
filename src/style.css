@@ -35,11 +35,8 @@
 @media (min-width: 35rem) {
     :root {
         --fs-900: 5rem;
-        /* --fs-800: 4rem; */
         --fs-700: 1.6rem;
-        /* --fs-600: 1.5rem; */
         --fs-500: 1.25rem;
-        /* --fs-400: 1.5rem; */
         --fs-300: .85rem;
         --fs-200: .7rem;
 
@@ -284,7 +281,8 @@ p {line-height: 1.8rem;}
     right: 0;
 
     height: 100vh;
-    width: min(70%, 330px);
+    /* width: min(70%, 330px); */
+    max-width: 250px;
 
     overflow-y: scroll;
     overflow-x: hidden;
@@ -498,7 +496,7 @@ p {line-height: 1.8rem;}
 
     box-shadow: 0px 8px 12px -3px rgba(29, 30, 30, .4);
 
-    border-radius: 15px;
+    border-radius: 10px;
 
     padding: 0;
     margin: 0;
@@ -513,7 +511,7 @@ p {line-height: 1.8rem;}
     width: 100%;
     height: 100%;
 
-    border-radius: 15px;
+    border-radius: 10px;
 
     object-fit: cover;
 

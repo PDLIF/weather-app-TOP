@@ -1,3 +1,4 @@
+const bodyElement = document.querySelector('body');
 const themeBtn = document.querySelector('#themeBtn');
 const themeMenu = document.querySelector('#themeMenu');
 const themeOptions = document.querySelectorAll('.theme-option');
@@ -20,10 +21,16 @@ function closeThemeMenu() {
     themeMenuClose.style.display = 'none';
 }
 
-function changeTheme(option) {
-    
+function changeTheme(event) {
+    const imgSrc = this.querySelector('img').src;
+    bodyElement.style.backgroundImage = `url(${imgSrc})`;
 }
 
+// Event listeners
+
+themeOptions.forEach((option, index) => {
+    option.addEventListener('click', changeTheme);
+})
 
 themeBtn.addEventListener('click', () => { openThemeMenu() });
 
