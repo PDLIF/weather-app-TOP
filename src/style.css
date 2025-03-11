@@ -10,6 +10,7 @@
     --clr-green-light: 168 15.4% 28%;
     --clr-green-lighter: 167 8.2% 43.1%;
     --clr-white: 0 0% 92.5%;
+    --clr-white-lighter: 0 0% 92.5% / .3;
     /* --clr-lightblue: 201 46% 48.6%; */
 
     /* fonts-sizes */
@@ -343,17 +344,23 @@ p {line-height: 1.8rem;}
 .mp3-player .track-title {
     position: absolute;
     bottom: 60px;
-    right: 20px;
+    left: 20px;
+    /* top: 20px; */
+    /* right: 20px; */
 
     padding: 0px 6px;
     border-radius: 5px;
 
-    color: hsl( var(--clr-white) / .8 );
+    line-height: 20px;
 
-    background-color: hsl( var(--clr-green-light) / .5 );
+    color: hsl( var(--clr-white) / .6 );
+
+    background-color: hsl( var(--clr-green-light) / .3 );
 
     backdrop-filter: blur(1px);
     -webkit-backdrop-filter: blur(1px); 
+
+    cursor: default;
 }
 
 .mp3-player > .track-cover {
@@ -517,14 +524,14 @@ p {line-height: 1.8rem;}
 
 .theme-menu-close {
     aspect-ratio: 1;
-    width: 25px;
+    width: 20px;
     border-radius: 50%;
     background-color: hsl( 167 8.2% 40% );
     border: 0;
 
     background-image: url(./assets/icons/cross.svg);
     background-repeat: no-repeat;
-    background-size: 13px;
+    background-size: 10px;
     background-position: center;
 
     display: none;
@@ -694,6 +701,8 @@ p {line-height: 1.8rem;}
     padding-right: 50px;
     max-width: 552px;
     line-height: 1rem;
+
+    position: relative;
 }
 
 .search-input {
@@ -719,7 +728,48 @@ p {line-height: 1.8rem;}
 }
 
 .search-input::-webkit-input-placeholder { /* Chrome, Safari, Edge */
-    color: hsl( var(--clr-white) / .3 );
+    color: hsl( var(--clr-white-lighter) );
+}
+
+.search-btn {
+    align-items: center;
+    --gap:8px;
+
+    position: absolute;
+    top: 5px;
+    right: 55px;
+
+    background-color: hsl( 167 8.2% 31% );
+
+    color: hsl( var(--clr-white-lighter) );
+
+    border: 0;
+    border-radius: 20px;
+
+    padding-inline: 7px;
+
+    width: fit-content;
+    height: 25px;
+
+    cursor: pointer;
+}
+
+.search-btn:hover {
+    background-color: hsl( 167 8.2% 30% );
+}
+
+.search-btn:active {
+    background-color: hsl( 167 8.2% 27% );
+}
+
+.search-btn .icon {
+    width: 15px;
+    height: 20px;
+}
+
+.search-btn p {
+    color: hsl( var(--clr-white) / .5 );
+    font-weight: 300;
 }
 
 
@@ -728,6 +778,8 @@ p {line-height: 1.8rem;}
 .weather-panel {
     flex-direction: column;
     --gap: 1rem;
+
+    cursor: default;
 }
 
 .weather-data {

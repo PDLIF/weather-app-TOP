@@ -1,5 +1,8 @@
 // import './style.css';
 
+const searchField = document.querySelector('.search-input');
+const searchBtn = document.querySelector('.search-btn');
+
 
 // Fetching weather data function
 
@@ -155,15 +158,18 @@ const updatePressureInfo = (data) => {
 
     pressureHtml.textContent = pressure;
     humidityHtml.textContent = humidity;
-} 
+}
+
+const searchWeather = () => {
+    const location = searchField.value.trim();
+    if (location) { getWeather(location) }
+}
 
 
 // Event listeners
 
-const searchField = document.querySelector('.search-input');
 searchField.addEventListener('keypress', (e) => {
-    if (e.key === 'Enter') {
-        const location = searchField.value.trim();
-        if (location) { getWeather(location) }
-    }
+    if (e.key === 'Enter') { searchWeather() }
 });
+
+searchBtn.addEventListener('click', () => { searchWeather() });
