@@ -569,7 +569,7 @@ p {line-height: 1.8rem;}
     padding: 12px;
     overflow-y: hidden;
 
-    transition: height 3s ease-in;
+    /* transition: height 3s ease-in; */
 
     top: 110%;
 
@@ -577,6 +577,18 @@ p {line-height: 1.8rem;}
     opacity: 0;
 
     position: relative;
+
+    animation: theme-menu-roll 2s linear ease-in;
+}
+
+@keyframes theme-menu-roll {
+    0% {
+        height: 0px;
+    }
+
+    100% {
+        height: 100%;
+    }
 }
 
 .theme-menu[aria-expanded='true'] {
@@ -786,6 +798,10 @@ p {line-height: 1.8rem;}
     border: none;
 
     position: relative;
+}
+
+.search-input:focus {
+    outline: 1px solid rgb(108, 157, 170);
 }
 
 .search-input::after {

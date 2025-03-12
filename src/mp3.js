@@ -1,99 +1,88 @@
-const playerContainer = document.querySelector('.mp3-player');
-const playBtn = document.querySelector('#play');
-const audio = document.querySelector('#audio');
-const volumeBar = document.querySelector('#volume');
-const volumeContainer = document.querySelector('.volume-container');
-// const title = document.querySelector('#title');
 
-audio.loop = true;
-audio.volume = 0.3;
-volumeBar.style.width = `${volume * 100}%`;
+import mySong from './assets/mp3/aaa.mp3';
 
-const songs = ['Aphex Twin - 3'];
+export const mp3Player = (() => {
+    const playerContainer = document.querySelector('.mp3-player');
+    const playBtn = document.querySelector('#play');
+    const audio = document.querySelector('#audio');
+    const volumeBar = document.querySelector('#volume');
+    const volumeContainer = document.querySelector('.volume-container');
 
-let songIndex = 0;
+    const song = mySong;
 
-let isDragging = false;
+    audio.loop = true;
+    audio.volume = 0.3;
+    volumeBar.style.width = `${volume * 100}%`;
 
-loadSong(songs[songIndex]);
+    const songs = ['Aphex Twin - 3'];
 
-function loadSong(song) {
-    audio.src = `./assets/mp3/${song}.mp3`;
-}
+    let songIndex = 0;
 
-function playSong() {
-    playerContainer.classList.add('play');
-    playBtn.querySelector('i.fas').classList.remove('fa-play');
-    playBtn.querySelector('i.fas').classList.add('fa-pause');
+    let isDragging = false;
 
-    audio.play();
-}
+    loadSong(songs[songIndex]);
 
-function pauseSong() {
-    playerContainer.classList.remove('play');
-    playBtn.querySelector('i.fas').classList.remove('fa-pause');
-    playBtn.querySelector('i.fas').classList.add('fa-play');
-
-    audio.pause();
-}
-
-function updateVolume(e) {
-    const volume = e.srcElement.volume
-    const volumePercent = volume * 100;
-    volumeBar.style.width = `${volumePercent}%`
-}
-
-function setVolume(e) {
-    const width = volumeContainer.clientWidth;
-    let clickX = e.offsetX;
-
-    if (e.type === "mousemove") {
-        clickX = e.clientX - volumeContainer.getBoundingClientRect().left;
+    function loadSong(song) {
+        audio.src = mySong;
     }
-    
-    let newVolume = clickX / width;
-    newVolume = Math.max(0, Math.min(1, newVolume));
 
-    audio.volume = newVolume;
-}
+    function playSong() {
+        playerContainer.classList.add('play');
+        playBtn.querySelector('i.fas').classList.remove('fa-play');
+        playBtn.querySelector('i.fas').classList.add('fa-pause');
 
-function startDragging(e) {
-    isDragging = true;
-    setVolume(e);
-}
+        audio.play();
+    }
 
-function stopDragging() {
-    isDragging = false;
-}
+    function pauseSong() {
+        playerContainer.classList.remove('play');
+        playBtn.querySelector('i.fas').classList.remove('fa-pause');
+        playBtn.querySelector('i.fas').classList.add('fa-play');
 
-function dragging(e) {
-    if (!isDragging) return;
-    setVolume(e);
-}
+        audio.pause();
+    }
 
-// Event Listeners
+    function updateVolume(e) {
+        const volume = e.srcElement.volume
+        const volumePercent = volume * 100;
+        volumeBar.style.width = `${volumePercent}%`
+    }
 
-volumeContainer.addEventListener('mousedown', startDragging);
-document.addEventListener('mouseup', stopDragging);
-document.addEventListener('mousemove', dragging);
+    function setVolume(e) {
+        const width = volumeContainer.clientWidth;
+        let clickX = e.offsetX;
 
-audio.addEventListener('volumechange', () => {
-    volumeBar.style.width = `${audio.volume * 100}%`;
-});
+        if (e.type === "mousemove") {
+            clickX = e.clientX - volumeContainer.getBoundingClientRect().left;
+        }
+        
+        let newVolume = clickX / width;
+        newVolume = Math.max(0, Math.min(1, newVolume));
 
+        audio.volume = newVolume;
+    }
 
+    function startDragging(e) {
+        isDragging = true;
+        setVolume(e);
+    }
 
+    function stopDragging() {
+        isDragging = false;
+    }
 
+    function dragging(e) {
+        if (!isDragging) return;
+        setVolume(e);
+    }
 
-
-
-// Event listeners
-
-playBtn.addEventListener('click', () => {
-    const isPlaying = playerContainer.classList.contains('play');
-    isPlaying ? pauseSong() : playSong();
-});
-
-// volumeContainer.addEventListener('click', setVolume);
-audio.addEventListener('volumechange', updateVolume)
-
+    return {
+        startDragging,
+        stopDragging,
+        dragging,
+        updateVolume,
+        pauseSong,
+        playSong,
+        loadSong
+    }
+})();
