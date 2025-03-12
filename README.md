@@ -6,7 +6,7 @@ The Weather App is a web application that allows users to search for weather inf
 
 ## Live Preview
 
-Check out the live version of the project here: [Live Preview](https://pdlif.github.io/weather-app-TOP/)
+Check out the live version of the project here:  [Live Preview](https://pdlif.github.io/weather-app-TOP/)
 
 ## Features
 
