@@ -1101,6 +1101,7 @@ p {line-height: 1.8rem;}
 
 .weather-data.pending .weather-data-header .location-name,
 .weather-data.pending .big-data > #temperature,
+.weather-data.pending .big-data #time-of-day-value,
 .weather-data.pending .temperatures-range p,
 .weather-data.pending .hour,
 .weather-data.pending .big-data .img-wrapper,
