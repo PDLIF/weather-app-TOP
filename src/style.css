@@ -371,23 +371,76 @@ p {line-height: 1.8rem;}
 .img-container {
     position: absolute;
 
-    top: 70px;
+    top: 20px;
     left: 20px;
     
+    width: 200px;
 }
 
-.img-container img {
-    width: inherit;
-    height: 50px;
+.img-container .record-cover {
+    height: 30px;
     border-radius: 50%;
     object-fit: cover;
-    position: absolute;
+    position: relative;
     bottom: 0;
     left: 0;
 
     animation: rotate 10s linear infinite;
 
     animation-play-state: paused;
+    cursor: pointer;
+    z-index: 200;
+}
+
+
+.img-container .info-badge {
+    display: none;
+    
+    position: absolute;
+    top: 0;
+    
+    align-items: center;
+    justify-content: end;
+    
+    transform: translate(0px, 0px);
+    
+    border-radius: 20px;
+    
+    height: 30px;
+    width: 140px;
+    padding-inline: 12px;
+    
+    background-color: hsl( var(--clr-white) / .1 );
+    color: hsl( var(--clr-white) / .7 );
+    
+    backdrop-filter: blur(1px);
+    -webkit-backdrop-filter: blur(3px); 
+
+    z-index: 1;
+
+    animation: roll .2s ;
+
+    white-space: nowrap;
+}
+
+@keyframes roll {
+    0% {
+        width: 0px;
+        color: transparent;
+    }
+
+    70% {
+        color: transparent;
+    }
+    
+    100% {
+        width: 140px;
+        opacity: 1;
+    }
+}
+
+.record-cover:hover + div {
+    display: flex;
 }
 
 .mp3-player.play .img-container img {
